@@ -1,18 +1,13 @@
 export {sumTwoSmallerNumberFrom, isCommentReallySafe, getIsUsersListSafed, getGuessTheRigthNumberOfUser, getLongestStringFrom, getFilterValueOfarray, getMusicListInArrayFrom, deletePropertyRollnoFrom, getMostFrequentElementFrom, getUniquelyElementInArray, getFlattenOfArray, moveElementInEndOfArray, getVolumeCylinder, getProductOfTwoNumber, getRemoveDoubleCharacters, getExtractOfValueIndexes, getPromiseAdd, getLargestEvenNumber, getCubedOfNumber, getSingleElementOfArray, isBothObjetIsEqual};
 
-let getVolumeCylinder : (a: number, b:number) => number
-     getVolumeCylinder = (radius, height) => { 
+  const  getVolumeCylinder = (radius: number, height:number): number => { 
     const pie = 3.145411
     return Number((2 * radius * height * pie).toFixed(4));
   }
 
- const getProductOfTwoNumber = (items: number, multi: number): number => items * multi;
-
-
- const getRemoveDoubleCharacters = (wordString: string) => {
-    const words = new Set(wordString.split(''))
-    return [...words].join('');
-}
+ const getProductOfTwoNumber = (numberToMultiply: number, multiplier: number): number =>  numberToMultiply * multiplier;
+ 
+ const getRemoveDoubleCharacters = (wordString: string): string => [...new Set(wordString.split(''))].join('');
 
 const getPromiseAdd = (firstValue: number, secondValue: number) => {
     return new Promise ((resolve, reject)=> {
@@ -37,27 +32,22 @@ const getCubedOfNumber = (element: number)  => {
  }
 
 
-const getLargestEvenNumber = (arrayNumber: number[]) => arrayNumber.filter(element => element % 2 === 0).sort((a,b) => b-a).find(element => element)
+const getLargestEvenNumber = (arrayNumber: number[]) => arrayNumber.filter(element => element % 2 === 0).sort().pop()
 
 
-  const getSingleElementOfArray = (firstArray: (number | String)[], SecondArray: (number | String)[]) => {
-    const newArray = [...new Set (firstArray.concat(SecondArray))]
-    return newArray
-  }
+  const getSingleElementOfArray = (firstArray: (number | String)[], SecondArray: (number | String)[]) => [...new Set (firstArray.concat(SecondArray))]
+    
 
-  const moveElementInEndOfArray = (array: (Number|String)[], ...elements:(number|String)[]) => {
-    const allElements = array.concat(elements)
-    return allElements.flat(Infinity)
-}
+
+  const moveElementInEndOfArray = (array: (Number|String)[], ...elements:(number|String)[]) => array.concat(elements).flat(Infinity)
+    
 
 const getFlattenOfArray = (array: (Number|String)[]) => array.flat(Infinity)
 
 const getUniquelyElementInArray = (array:  (Number|String)[] ) => [...new Set (array)]
 
-function getMostFrequentElementFrom(array: (string|number)[] ){
-  return array.sort((a,b) =>
-  array.filter(v => v===a).length- array.filter(v => v===b).length).pop();
-}
+const getMostFrequentElementFrom = (array: (string|number)[] ) => array.sort((firstValue,secondValue) => array.filter(element => element===firstValue).length- array.filter(element => element===secondValue).length).pop();
+
 interface Student{
   name: String,
   class: String
@@ -75,20 +65,11 @@ const deletePropertyRollnoFrom = (student: Student, property: iud) => {
   else return 'is not exit property'
 }
 
-
-const isBothObjetIsEqual = (firstObjet: Student, secondObjet: Student) => {
-  if (JSON.stringify(firstObjet) === JSON.stringify(secondObjet)){
-    return true
-  }else return false
-}
-
+const isBothObjetIsEqual = (firstObjet: Student, secondObjet: Student) =>  JSON.stringify(firstObjet) === JSON.stringify(secondObjet)
 
 const getMusicListInArrayFrom = (peopleList: any[]): string[] => [...new Set (peopleList.map(item => item.music).flat())]
 
-const getFilterValueOfarray = (array: number[], ...indexes: number[])=> {
-  indexes.map(index => delete array[index])
-  return array.filter(element => element != undefined)
-}
+const getFilterValueOfarray = (array: number[], select: number[]) => array.filter(item => !select.includes(array.indexOf(item)))
 
 const getLongestStringFrom = (array: string[]) => {
   return array.reduce((previousValue, currentValue)=> previousValue.length > currentValue.length ? previousValue : currentValue)
@@ -103,11 +84,6 @@ const getGuessTheRigthNumberOfUser = (number: number) => {
 
 const getIsUsersListSafed = (userList: any[]): boolean => userList.every(item =>item.safe)
 
-const isCommentReallySafe = (comment: string, insultList: string[]) => {
-  return insultList.some(element =>comment.includes(element))
-};
+const isCommentReallySafe = (comment: string, insultList: string[]) =>  insultList.some(element =>comment.includes(element))
 
-const sumTwoSmallerNumberFrom = (arrayOfNumber: number[]) => {
-  arrayOfNumber.sort((a,b)=> a-b)
-return arrayOfNumber[0] + arrayOfNumber[1]
-};
+const sumTwoSmallerNumberFrom = (arrayOfNumber: any): number =>   arrayOfNumber.sort().shift() + arrayOfNumber.sort().shift()
