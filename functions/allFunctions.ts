@@ -1,9 +1,9 @@
-export {sumTwoSmallerNumberFrom, isCommentReallySafe, areAllUsersSafed, guessTheCorrectNumberEnterByUser, getLongestStringFrom, getFilterValueOfarray, getMusicListInArrayFrom, deletePropertyFrom, getMostFrequentElementFrom, getUniquelyElementInArray, getFlattenOfArray, addElementsInEndOfArray, getVolumeCylinder, getMultiplication, removeRedundantCharacters, getExtractOfValuesIndexes, getAdd, getLargestEvenNumberIn, sumOfCubedNumberUpTo, getSingleElementInArray, bothObjectsAreEquals};
+export {sumTwoSmallerNumberFrom, isCommentReallySafe, areAllUsersSafed, guessTheCorrectNumberEnterByUser, getLongestStringFrom, getFilterValueOfarray, getMusicListInArrayFrom, deletePropertyFrom, getMostFrequentElementFrom, getUniquelyElementInArray, getFlattenOfArray, addElementsInEndFrom, getVolumeOfCylinder, getMultiplication, removeRedundantCharacters, getExtractOfValuesIndexes, getAdd, getLargestEvenNumberIn, sumOfCubedNumberUpTo, getUniqueElementsInSingleArray, bothObjectsAreEquals};
 
-const  getVolumeCylinder = (radius: number, height:number): number => Number((2 * radius * height * Math.PI).toFixed(4));
+const  getVolumeOfCylinder = (radius: number, height:number): number => Number((2 * radius * height * Math.PI).toFixed(4));
   
 const getMultiplication = (firstNumber: number, secondNumber: number): number =>  firstNumber * secondNumber;
- 
+
 const removeRedundantCharacters = (word: string): string => [...new Set(word.split(''))].join('');
 
 const getAdd = (firstValue: number, secondValue: number): object => {
@@ -18,7 +18,7 @@ const getAdd = (firstValue: number, secondValue: number): object => {
   }
   
   
-const getExtractOfValuesIndexes = (arrayOfValue: (number | String)[], ...indexes: number[]): (number | String)[] => indexes.map(index => arrayOfValue[index]);
+const getExtractOfValuesIndexes = (values: (number | String)[], ...indexes: number[]): (number | String)[] => indexes.map(index => values[index]);
 
 const sumOfCubedNumberUpTo = (element: number): number  => {
    let sum = 0;
@@ -31,9 +31,9 @@ const sumOfCubedNumberUpTo = (element: number): number  => {
 
 const getLargestEvenNumberIn = (array: number[]): number => Math.max(...array.filter(element => element % 2 === 0))
 
-const getSingleElementInArray = (firstArray: (number | String)[], SecondArray: (number | String)[]): (number | String)[]=> [...new Set (firstArray.concat(SecondArray))]
+const getUniqueElementsInSingleArray = (firstArray: (number | String)[], SecondArray: (number | String)[]): (number | String)[]=> [...new Set (firstArray.concat(SecondArray))]
     
-const addElementsInEndOfArray = (array: (Number|String)[], ...elements:(number|String)[]): (Number|String)[] => array.concat(elements).flat(Infinity)
+const addElementsInEndFrom = (array: (Number|String)[], ...elements:(number|String)[]): (Number|String)[] => array.concat(elements).flat(Infinity)
     
 
 const getFlattenOfArray = (array: (Number|String)[]): (Number|String)[] => array.flat(Infinity)
