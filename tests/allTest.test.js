@@ -1,4 +1,4 @@
-import {sumTwoSmallerNumberFrom, isCommentReallySafe, getIsUsersListSafed, getGuessTheRigthNumberOfUser, getLongestStringFrom, getFilterValueOfarray, getMusicListInArrayFrom, getMostFrequentElementFrom, getUniquelyElementInArray, getFlattenOfArray, moveElementInEndOfArray, getSingleElementOfArray, getVolumeCylinder, getProductOfTwoNumber, getRemoveDoubleCharacters, getExtractOfValueIndexes, getPromiseAdd, getCubedOfNumber, deletePropertyRollnoFrom, isBothObjetIsEqual} from '../functions/allFunctions.ts';
+import {sumTwoSmallerNumberFrom, isCommentReallySafe, areAllUsersSafed, GuessTheCorrectNumberEnterByUser, getLongestStringFrom, getFilterValueOfarray, getMusicListInArrayFrom, getMostFrequentElementTo, getUniquelyElementInArray, getFlattenOfArray, AddElementsInEndOfArray, getSingleElementInArray, getVolumeCylinder, getMultiplication, removeRedundantCharacters, getExtractOfValueIndexes, getAdd, sumOfCubedNumberUpTo, deletePropertyFrom, isBothObjetIsEqual} from '../functions/allFunctions.ts';
 
 test('the value of a new array is provide of indexes of other array', () => {
     expect(getExtractOfValueIndexes([1,2,4,8,6,5],0)).toStrictEqual([1])
@@ -6,66 +6,66 @@ test('the value of a new array is provide of indexes of other array', () => {
 
 
 test('three multiplicate by tree egal nine', () => {
-    expect(getProductOfTwoNumber(3,3)).toBe(9);
+    expect(getMultiplication(3,3)).toBe(9);
 });
 
 
 
 test ('the result of one plus two egal to three', ()=> {
-    return getPromiseAdd(1,2).then(result => {
+    return getAdd(1,2).then(result => {
         expect(result).toBe(3);
     })
 })
 
 test ('the result of one is Must provide two', () => {
-    return getPromiseAdd(1).catch(error => {
+    return getAdd(1).catch(error => {
         expect(error).toMatch('Must provide two')
     })
 })
 
 test('"jospinn" is jospin', () => {
-    expect (getRemoveDoubleCharacters('jospinn')).toBe('jospin')
+    expect (removeRedundantCharacters('jospinn')).toBe('jospin')
 })
 
 test ('"jospinn" is jospin', () => {
-    expect (getRemoveDoubleCharacters('jospinnn')).toBe('jospin')
+    expect (removeRedundantCharacters('jospinnn')).toBe('jospin')
 })
 
 test ('the sum two cubed egal nine', () => {
-    expect(getCubedOfNumber(2)).toBe(9) 
+    expect(sumOfCubedNumberUpTo(2)).toBe(9) 
 })
 
 test ('the sum two cubed egal nine', () => {
-    expect(getCubedOfNumber(1)).toBe(1) 
+    expect(sumOfCubedNumberUpTo(1)).toBe(1) 
 })
 
 test ('the sum two cubed egal nine', () => {
-    expect(getCubedOfNumber(0)).toBe(0) 
+    expect(sumOfCubedNumberUpTo(0)).toBe(0) 
 })
 
 test ('the sum two cubed egal nine', () => {
-    expect(getCubedOfNumber(3)).toBe(36) 
+    expect(sumOfCubedNumberUpTo(3)).toBe(36) 
 })
 
 
 test('product of pie, radius and height equal to volumeCylinder', () => {
-    expect(getVolumeCylinder(4,5)).toBe(125.8164)
+    expect(getVolumeCylinder(4,5)).toBe(125.6637)
 })
 
 test ('the two arrays must be a single array with no element duplicates', () => {
-    expect (getSingleElementOfArray([1,2,3,4], [6,4,7,1])).toStrictEqual([1,2,3,4,6,7])
+    expect (getSingleElementInArray([1,2,3,4], [6,4,7,1])).toStrictEqual([1,2,3,4,6,7])
 })
 
 test ('the two arrays must be a single array with no element duplicates', () => {
-    expect (getSingleElementOfArray([6,2,3,4,'bold','hungry'], [6,4,'hungry',7,1])).toStrictEqual([6,2,3,4, 'bold','hungry',7,1])
+    expect (getSingleElementInArray([6,2,3,4,'bold','hungry'], [6,4,'hungry',7,1])).toStrictEqual([6,2,3,4, 'bold','hungry',7,1])
 })
 
 test ('adding elements at the end an array', () => {
-    expect(moveElementInEndOfArray([1,2,8], 6,9,8,2)).toStrictEqual([1,2,8,6,9,8,2])
+    expect(AddElementsInEndOfArray([1,2,8], 6,9,8,2)).toStrictEqual([1,2,8,6,9,8,2])
 })
 
-test ('dding elements at the end an array', () => {
-    expect(moveElementInEndOfArray([1,2,8], 6,9,'jos')).toStrictEqual([1,2,8,6,9,'jos'])
+test ('adding elements at the end an array', () => {
+    expect(AddElementsInEndOfArray([1,2,8], 6,9,'jos')).toStrictEqual([1,2,8,6,9,'jos'])
 })
 
 test ('reduce the depth of an array to a single array', () => {
@@ -81,15 +81,15 @@ test ('remove duplicates from an array of elements', () => {
 })
 
 test ('the element is more frequent in an array ', () => {
-    expect(getMostFrequentElementFrom([2,4,9,6,2,8,2,10])).toBe(2)
+    expect(getMostFrequentElementTo([2,4,9,6,2,8,2,10])).toBe(2)
 })
 
 test ('remove property from an object', () =>{
-    expect(deletePropertyRollnoFrom({name: "David Rayy", sclass: "VI", rollno: 12}, 'rollno')).toMatchObject({name: "David Rayy", sclass: "VI"})
+    expect(deletePropertyFrom({name: "David Rayy", sclass: "VI", rollno: 12}, 'rollno')).toMatchObject({name: "David Rayy", sclass: "VI"})
 })
 
 test ('remove property from an object', () =>{
-    expect(deletePropertyRollnoFrom({name: "David Rayy", sclass: "VI", rollno: 12}, 'age')).toBe('is not exit property')
+    expect(deletePropertyFrom({name: "David Rayy", sclass: "VI", rollno: 12}, 'age')).toBe('is not exit property')
 })
 
 test ('the second object contains all elements of the first object', ()=> {
@@ -121,30 +121,30 @@ test('the longest string of array is lithopedion', () => {
 
 test('match the guess number in random integer',() => {
     Math.random = jest.fn(() => 0.35)
-    expect(getGuessTheRigthNumberOfUser(4)).toMatch('Good Work')
+    expect(GuessTheCorrectNumberEnterByUser(4)).toMatch('Good Work')
 })
 
 test('match the guess number in random integer',() => {
     Math.random = jest.fn(() => 0.02)
-    expect(getGuessTheRigthNumberOfUser(2)).toMatch('Not Matched')
+    expect(GuessTheCorrectNumberEnterByUser(2)).toMatch('Not Matched')
 })
 
 test('match the guess number in random integer',() => {
     Math.random = jest.fn(() => 0.54)
-    expect(getGuessTheRigthNumberOfUser(6)).toMatch('Good Work')
+    expect(GuessTheCorrectNumberEnterByUser(6)).toMatch('Good Work')
 })
 
 test('match the guess number in random integer',() => {
     Math.random = jest.fn(() => 0.54)
-    expect(getGuessTheRigthNumberOfUser(4)).toMatch('Not Matched')
+    expect(GuessTheCorrectNumberEnterByUser(4)).toMatch('Not Matched')
 })
 
 test('check if all users are safe or not', ()=> {
-    expect(getIsUsersListSafed([{name: 'john', safe: true},{name: 'jospin', safe: false},{name: 'uldr', safe: true}])).toStrictEqual(false)
+    expect(areAllUsersSafed([{name: 'john', safe: true},{name: 'jospin', safe: false},{name: 'uldr', safe: true}])).toStrictEqual(false)
 })
 
 test('check if all users are safe or not', ()=> {
-    expect(getIsUsersListSafed([{name: 'john', safe: true},{name: 'jospin', safe: true},{name: 'uldr', safe: true}])).toStrictEqual(true)
+    expect(areAllUsersSafed([{name: 'john', safe: true},{name: 'jospin', safe: true},{name: 'uldr', safe: true}])).toStrictEqual(true)
 })
 
 test('check if the comment contains insults', () => {
