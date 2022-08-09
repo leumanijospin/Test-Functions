@@ -1,4 +1,4 @@
-export {sumTwoSmallerNumberFrom, isCommentReallySafe, areAllUsersSafed, guessTheCorrectNumberEnterByUser, getLongestStringFrom, getFilterValueOfarray, getMusicListInArrayFrom, deletePropertyFrom, getMostFrequentElementFrom, getUniquelyElementInArray, getFlattenOfArray, AddElementsInEndOfArray, getVolumeCylinder, getMultiplication, removeRedundantCharacters, getExtractOfValueIndexes, getAdd, getLargestEvenNumberIn, sumOfCubedNumberUpTo, getSingleElementInArray, bothObjectsAreEquals};
+export {sumTwoSmallerNumberFrom, isCommentReallySafe, areAllUsersSafed, guessTheCorrectNumberEnterByUser, getLongestStringFrom, getFilterValueOfarray, getMusicListInArrayFrom, deletePropertyFrom, getMostFrequentElementFrom, getUniquelyElementInArray, getFlattenOfArray, addElementsInEndOfArray, getVolumeCylinder, getMultiplication, removeRedundantCharacters, getExtractOfValuesIndexes, getAdd, getLargestEvenNumberIn, sumOfCubedNumberUpTo, getSingleElementInArray, bothObjectsAreEquals};
 
 const  getVolumeCylinder = (radius: number, height:number): number => Number((2 * radius * height * Math.PI).toFixed(4));
   
@@ -18,7 +18,7 @@ const getAdd = (firstValue: number, secondValue: number): object => {
   }
   
   
-const getExtractOfValueIndexes = (arrayOfValue: (number | String)[], ...indexes: number[]): (number | String)[] => indexes.map(index => arrayOfValue[index]);
+const getExtractOfValuesIndexes = (arrayOfValue: (number | String)[], ...indexes: number[]): (number | String)[] => indexes.map(index => arrayOfValue[index]);
 
 const sumOfCubedNumberUpTo = (element: number): number  => {
    let sum = 0;
@@ -33,7 +33,7 @@ const getLargestEvenNumberIn = (array: number[]): number => Math.max(...array.fi
 
 const getSingleElementInArray = (firstArray: (number | String)[], SecondArray: (number | String)[]): (number | String)[]=> [...new Set (firstArray.concat(SecondArray))]
     
-const AddElementsInEndOfArray = (array: (Number|String)[], ...elements:(number|String)[]): (Number|String)[] => array.concat(elements).flat(Infinity)
+const addElementsInEndOfArray = (array: (Number|String)[], ...elements:(number|String)[]): (Number|String)[] => array.concat(elements).flat(Infinity)
     
 
 const getFlattenOfArray = (array: (Number|String)[]): (Number|String)[] => array.flat(Infinity)
