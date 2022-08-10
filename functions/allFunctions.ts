@@ -1,4 +1,4 @@
-export {sumTwoSmallerNumberFrom, isCommentReallySafe, areAllUsersSafed, guessTheCorrectNumberEnterByUser, getLongestStringFrom, getFilter, getMusicListFrom, deletePropertyFrom, getMostFrequentElementFrom, getUniquelyElement, getFlatten, addElementsInEndFrom, getVolumeCylinder, multiplication, removeRedundantCharacters, getExtractValuesIndexes, getSum, getLargestEvenNumber, sumOfCubedNumberUpTo, getUniqueElements, bothObjectsAreEquals};
+export {sumTwoSmallerNumberFrom, isCommentReallySafe, areAllUsersSafed, guessTheCorrectNumberEnterByUser, getLongestStringFrom, getFilterArray, getMusicListFrom, deletePropertyFrom, getMostFrequentElementFrom, getUniquelyElement, getFlattenArray, addElementsInEndFrom, getVolumeCylinder, multiplication, removeRedundantCharacters, getExtractValuesIndexes, getSum, getLargestEvenNumber, sumOfCubedNumberUpTo, getUniqueElements, bothObjectsAreEquals};
 
 const  getVolumeCylinder = (radius: number, height:number): number => Number((2 * radius * height * Math.PI).toFixed(4));
   
@@ -36,7 +36,7 @@ const getUniqueElements = (firstArray: (number | string)[], secondArray: (number
 const addElementsInEndFrom = (elements: (number|string)[], ...elementsToAdd:(number|string)[]): (number|string)[] => elementsToAdd.concat(elements).flat(Infinity)
     
 
-const getFlatten = (nestedArray: (number|string)[]): (number|string)[] => nestedArray.flat(Infinity)
+const getFlattenArray = (nestedArray: (number|string)[]): (number|string)[] => nestedArray.flat(Infinity)
 
 const getUniquelyElement = (elements:  (number|string)[]): (number|string)[] => [...new Set (elements)]
 
@@ -68,7 +68,7 @@ type People = {
 
 const getMusicListFrom = (peopleList: Array<People>): string[] => [...new Set (peopleList.map(item => item.music).flat())]
 
-const getFilter = (values: (string|number)[], indexes: number[]): (string|number)[] => values.filter(item =>!indexes.includes(values.indexOf(item)))
+const getFilterArray = (values: (string|number)[], indexes: number[]): (string|number)[] => values.filter(item =>!indexes.includes(values.indexOf(item)))
 
 const getLongestStringFrom = (wordList: string[]): string => {
   return wordList.reduce((previousValue, currentValue)=> previousValue.length > currentValue.length ? previousValue : currentValue)
