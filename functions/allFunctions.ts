@@ -94,3 +94,5 @@ const sumTwoSmallerNumberFrom = (numbers: Array<number>): number =>  {
        numbers.sort()
   return (numbers[0] + numbers[1]);
 }
+
+const factorialize = (number: number): number => number <= 0 ? 1 : number * factorialize(number-1); 
